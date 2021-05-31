@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wall</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <fieldset>
+                        {% if messages %} {% for msg in messages %}
+                        <h3>{{ msg }}</h3>
+                        {% endfor %}{% endif %}
+                        <h1>Register</h1>
+                        <form action="/register" method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input type="text" name="firstname" id="firstname" class="form-control input-lg" placeholder="firstname">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="text" name="lastname" id="lastname" class="form-control input-lg" placeholder="lastname">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address">
+                            </div>
+
+                            <div class="form-group">
+                                <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="confirm_password" id="confirm_password" class="form-control input-lg" placeholder="confirm password ">
+                            </div>
+
+                            <div>
+                                <input type="submit" class="btn btn-lg btn-primary" value=" Register">
+                            </div>
+                        </form>
+                    </fieldset>
+                    <fieldset>
+                        <h1>Login</h1>
+                        <form action="/login" method="post">
+                            {% csrf_token %} Email: <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address"> Password: <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
+                            <button>Submit</button>
+                        </form>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

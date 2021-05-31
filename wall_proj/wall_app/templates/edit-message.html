@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Post</title>
+</head>
+
+<body>
+    <h1>Edit Post</h1>
+
+    {% if messages %} {% for message in messages %}
+    <h3>{{ message }}</h3>
+    {% endfor %} {% endif %}
+
+    <form class="form-group" action="/modify-message" method="post">
+        {% csrf_token %}
+        <textarea class="form-control" id="message" name="mod_message" cols="100" rows="3">{{message.message}}</textarea>
+        <input type="hidden" name="message_ID" value="{{message.id}}" />
+        <button type="submit" class="btn  btn-primary mt-3">Post a message</button>
+    </form>
+
+</body>
+
+</html>
